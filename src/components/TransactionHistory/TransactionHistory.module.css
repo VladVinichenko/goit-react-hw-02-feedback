@@ -1,0 +1,31 @@
+.transactionHistory {
+  background-color: var(--background-color);
+  width: 100%;
+  height: min-content;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.thead {
+  background-color: rgb(185, 185, 185);
+  color: rgb(0, 0, 0);
+  height: 50px;
+  font-size: 20px;
+}
+
+.item {
+  font-size: 15px;
+  color: var(--font-primary-color);
+  height: 30px;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.item:nth-child(2n) {
+  background-color: var(--background-color-shade);
+}
+
+.item:hover {
+  background-color: rgb(93, 63, 121);
+}
