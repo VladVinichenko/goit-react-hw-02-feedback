@@ -1,7 +1,11 @@
 .title {
-  padding-top: 20px;
   color: var(--font-primary-color);
   font-size: 30px;
   margin-bottom: 20px;
   text-align: center;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: center;
 }

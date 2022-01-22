@@ -1,9 +1,11 @@
 :root {
-  --background-color: rgb(46, 46, 46);
+  --background-color: rgb(68, 68, 68);
   --background-color-shade: rgba(0, 0, 0, 0.055);
   --background-avatar: rgba(255, 255, 255, 0.068);
+  --background-hover-style: rgb(110, 110, 110);
   --card-radius: 10px;
   --card-shadow: 0 0 20px rgb(29, 29, 29);
+  --card-hover-shadow: 0 0 20px rgb(82, 82, 82);
   --font-primary-color: rgb(255, 255, 255);
   --font-seconary-color: rgb(160, 160, 160);
 }
