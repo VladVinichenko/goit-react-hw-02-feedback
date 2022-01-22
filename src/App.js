@@ -1,7 +1,8 @@
 import Section from "./components/Section/Section";
-import Feedback from "./components/Feedback/Feedback";
+import FeedbackOptions from "./components/FeedbackOptions/FeedbackOptions";
 import Statistics from "./components/Statistics/Statistics";
 import React, { Component } from "react";
+import { Fragment } from "react/cjs/react.production.min";
 
 class App extends Component {
   state = {
@@ -10,22 +11,36 @@ class App extends Component {
     bad: 0
   }
 
-  updateFeedback = evt => {
-    // this.setState(prevState => )
-    console.log(evt.target.name);
-    console.log(this.state);
+  incrementFeedback = evt => {
+    this.setState((prevState) => {
+      const typeFeedback = evt.target.name
+      const newState = {}
+      newState[typeFeedback] = prevState[typeFeedback] + 1
+      return {
+        ...newState
+      }
+    })
+  }
+
+  countTotalFeedback = () => {
+    return Object.values(this.state).reduce((acc, value) => acc + value)
+  }
+
+  countPositiveFeedbackPercentage = () => {
+    return Math.round([this.state.good / this.countTotalFeedback() * 100])
   }
 
   render() {
     return (
-      <div>
-        <Section>
-          <Feedback state={this.state} click={this.updateFeedback} />
-          <Statistics state={this.state} />
+      <Fragment>
+        <Section title='Statistics'>
+          <FeedbackOptions options={this.state} onLeaveFeedback={this.incrementFeedback} />
         </Section>
-      </div>
-    );
-
+        <Section title='Please leave feedback'>
+          <Statistics good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.countTotalFeedback()} positivePercentage={this.countPositiveFeedbackPercentage()}></Statistics>
+        </Section>
+      </Fragment>
+    )
   }
 }
 export default App

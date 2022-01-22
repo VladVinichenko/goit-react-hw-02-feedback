@@ -1,9 +1,9 @@
 import { Children } from "react"
 import s from './Button.module.css'
 
-const Button = ({ name, click }) => {
+const Button = ({ name, onLeaveFeedback }) => {
   return (
-    <button className={s.button} name={name} onClick={click}> {name}</button >
+    <button className={s.button} name={name} onClick={onLeaveFeedback}> {name}</button >
   )
 }
 
