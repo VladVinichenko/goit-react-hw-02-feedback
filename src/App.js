@@ -3,6 +3,8 @@ import FeedbackOptions from "./components/FeedbackOptions/FeedbackOptions";
 import Statistics from "./components/Statistics/Statistics";
 import React, { Component } from "react";
 import { Fragment } from "react/cjs/react.production.min";
+import PropTypes from "prop-types";
+
 
 class App extends Component {
   state = {
@@ -13,13 +15,14 @@ class App extends Component {
 
   incrementFeedback = evt => {
     this.setState((prevState) => {
-      const typeFeedback = evt.target.name
+      const typeFeedback = evt
       const newState = {}
       newState[typeFeedback] = prevState[typeFeedback] + 1
       return {
         ...newState
       }
     })
+
   }
 
   countTotalFeedback = () => {
@@ -43,4 +46,7 @@ class App extends Component {
     )
   }
 }
+
+
+
 export default App

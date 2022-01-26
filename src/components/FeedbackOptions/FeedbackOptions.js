@@ -1,7 +1,7 @@
 import { Fragment } from "react/cjs/react.production.min"
 import s from './FeedbackOptions.module.css'
 import Button from "../Button/Button";
-
+import PropTypes from "prop-types"
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   const keys = Object.keys(options)
@@ -9,11 +9,16 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     <Fragment>
       <div className={s.buttonBox}>
         {keys.map(key =>
-          <Button name={key} onLeaveFeedback={onLeaveFeedback} key={key} />
+          <Button type='button' name={key} onLeaveFeedback={onLeaveFeedback} key={key} />
         )}
       </div>
     </Fragment>
   )
 }
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.object.isRequired
+}
+
 
 export default FeedbackOptions
