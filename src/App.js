@@ -12,9 +12,9 @@ class App extends Component {
     bad: 0
   }
 
-  incrementFeedback = evt => {
+  handleIncrementFeedback = typeFeedback => {
     this.setState((prevState) => {
-      const typeFeedback = evt
+      // const typeFeedback = typeFeedback
       const newState = {}
       newState[typeFeedback] = prevState[typeFeedback] + 1
       return {
@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <Fragment>
         <Section title='Statistics'>
-          <FeedbackOptions options={this.state} onLeaveFeedback={this.incrementFeedback} />
+          <FeedbackOptions options={this.state} onLeaveFeedback={this.handleIncrementFeedback} />
         </Section>
         <Section title='Please leave feedback'>
           <Statistics good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.countTotalFeedback()} positivePercentage={this.countPositiveFeedbackPercentage()}></Statistics>
